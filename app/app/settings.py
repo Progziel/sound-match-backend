@@ -125,7 +125,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/static/'
+MEDIA_URL = '/static/media/'
+
+MEDIA_ROOT = '/vol/web/media'
+STATIC_ROOT = '/vol/web/static'
+
+# Make sure static & media files are served in DEBUG mode
+if os.getenv('DOCKER_ENV') == 'production':
+    STATIC_ROOT = '/vol/web/static'
+    MEDIA_ROOT = '/vol/web/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -137,3 +146,32 @@ AUTH_USER_MODEL = 'core.User'
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+# Add the SPECTACULAR_SETTINGS here
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Sound Match API",
+    "DESCRIPTION": "API for Sound Match applications",
+    "VERSION": "1.0.0",
+    "COMPONENT_SPLIT_REQUEST": True,
+}
+
+
+# SPECTACULAR_SETTINGS = {
+#     'TITLE': 'Sound Match API',  # You can replace with your API name
+#     'DESCRIPTION': 'API for Sound Match application',  # Your description
+#     'VERSION': '1.0.0',
+#     'SERVE_INCLUDE_SCHEMA': False,
+#     'COMPONENT_SPLIT_REQUEST': True,
+#     'SWAGGER_UI_SETTINGS': {
+#         'deepLinking': True,
+#         'persistAuthorization': True,
+#         'displayOperationId': True,
+#     },
+#     'SWAGGER_UI_DIST': 'SIDECAR',
+#     'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+#     'REDOC_DIST': 'SIDECAR',
+# }

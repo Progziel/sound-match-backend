@@ -38,6 +38,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255, null=False, blank=False)
     is_active = models.BooleanField(default=True, null=False, blank=False)
     is_staff = models.BooleanField(default=False, null=False, blank=False)
+    last_login = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(
+        auto_now_add=True, null=False, blank=False)
+    updated_at = models.DateTimeField(auto_now=True, null=False, blank=False)
 
     objects = UserManager()
 
