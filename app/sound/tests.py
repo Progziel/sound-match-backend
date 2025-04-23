@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 from rest_framework.test import APIClient
 from rest_framework import status
-from core.models.sound import Sound
+from core.models import Sound
 from django.core.files.uploadedfile import SimpleUploadedFile
 from PIL import Image
 import io

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from core.models.sound import Sound
+from core.models import Sound
 
 
 class SoundSerializer(serializers.ModelSerializer):

@@ -32,6 +32,7 @@ urlpatterns = [
     ),
     path('api/v1/user/', include('user.urls')),
     path('api/v1/sound/', include('sound.urls')),
+    path('api/v1/sound-packs/', include('sound_pack.urls')),
 ]
 
 if settings.DEBUG:

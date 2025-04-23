@@ -2,7 +2,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.exceptions import PermissionDenied
 from rest_framework import authentication, permissions
 from rest_framework.viewsets import ModelViewSet
-from core.models.sound import Sound
+from core.models import Sound
 from .serializers import SoundSerializer
 
 
